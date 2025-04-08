@@ -1,4 +1,4 @@
-package com.locatech.locatech.controller.entities;
+package com.locatech.locatech.entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -1,4 +1,6 @@
-package com.locatech.locatech.controller.entities;
+package com.locatech.locatech.entities;
+
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -13,10 +15,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Pessoa {
+public class Veiculo {
     private Long id;
-    private String nome;
-    private String cpf;
-    private String telefone;
-    private String email;
+    private String marca;
+    private String modelo;
+    private String placa;
+    private int ano;
+    private String cor;
+    private BigDecimal valordiaria;
 }
