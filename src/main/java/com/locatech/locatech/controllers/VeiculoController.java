@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locatech.locatech.entities.Veiculo;
@@ -63,7 +62,7 @@ public class VeiculoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity updateVeiculo(
+    public ResponseEntity<Void> updateVeiculo(
             @PathVariable("id") Long id,
             @RequestBody Veiculo veiculo) {
         logger.info("PUT -> /veiculos/" + id);
@@ -75,13 +74,10 @@ public class VeiculoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVeiculo(
-        @PathVariable("id") Long id
-    ) {
-        logger.info("DELETE -> /veiculos/" +id);
+            @PathVariable("id") Long id) {
+        logger.info("DELETE -> /veiculos/" + id);
         this.veiculoService.deleteVeiculo(id);
 
         return ResponseEntity.ok().build();
     }
 }
-
-

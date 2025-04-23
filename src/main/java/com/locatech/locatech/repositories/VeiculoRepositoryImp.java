@@ -29,7 +29,7 @@ public class VeiculoRepositoryImp implements VeiculoRepository {
     public List<Veiculo> findAll(int size, int offset) {
         return this.jdbcClient
                 .sql("SELECT * FROM veiculos LIMIT :limit OFFSET :offset")
-                .param("size", size)
+                .param("limit", size)
                 .param("offset", offset)
                 .query(Veiculo.class)
                 .list();
