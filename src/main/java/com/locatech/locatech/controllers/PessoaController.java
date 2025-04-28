@@ -25,10 +25,10 @@ public class PessoaController {
 
     private static final Logger logger = LoggerFactory.getLogger(PessoaController.class);
 
-    private final PessoaService PessoaService;
+    private final PessoaService pessoaService;
 
     public PessoaController(PessoaService PessoaService) {
-        this.PessoaService = PessoaService;
+        this.pessoaService = PessoaService;
     }
 
     @GetMapping // /Pessoas - GET
@@ -37,9 +37,9 @@ public class PessoaController {
             @RequestParam("size") int size) {
         logger.info("/Pessoas");
 
-        var Pessoa = this.PessoaService.findAllPessoas(page, size);
+        var pessoa = this.pessoaService.findAllPessoas(page, size);
 
-        return ResponseEntity.ok(Pessoa);
+        return ResponseEntity.ok(pessoa);
     }
 
     @GetMapping("/{id}") // /Pessoas/1 - GET
@@ -47,16 +47,16 @@ public class PessoaController {
             @PathVariable("id") Long id) {
         logger.info("/Pessoas/" + id);
 
-        var Pessoa = this.PessoaService.findByPessoaId(id);
+        var pessoa = this.pessoaService.findByPessoaId(id);
 
-        return ResponseEntity.ok(Pessoa);
+        return ResponseEntity.ok(pessoa);
     }
 
     @PostMapping()
     public ResponseEntity<Pessoa> savePessoa(
-            @RequestBody Pessoa Pessoa) {
+            @RequestBody Pessoa pessoa) {
         logger.info("POST -> /Pessoa");
-        this.PessoaService.savePessoa(Pessoa);
+        this.pessoaService.savePessoa(pessoa);
 
         return ResponseEntity.status(201).build();
     }
@@ -64,9 +64,9 @@ public class PessoaController {
     @PutMapping("/{id}")
     public ResponseEntity<Void> updatePessoa(
             @PathVariable("id") Long id,
-            @RequestBody Pessoa Pessoa) {
+            @RequestBody Pessoa pessoa) {
         logger.info("PUT -> /Pessoas/" + id);
-        this.PessoaService.updatePessoa(Pessoa, id);
+        this.pessoaService.updatePessoa(pessoa, id);
 
         return ResponseEntity.ok().build();
 
@@ -77,7 +77,7 @@ public class PessoaController {
         @PathVariable("id") Long id
     ) {
         logger.info("DELETE -> /Pessoas/" +id);
-        this.PessoaService.deletePessoa(id);
+        this.pessoaService.deletePessoa(id);
 
         return ResponseEntity.ok().build();
     }
