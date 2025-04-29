@@ -2,6 +2,9 @@ package com.locatech.locatech.entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import com.locatech.locatech.dtos.AluguelRequestDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,4 +31,12 @@ public class Aluguel {
     private LocalDate dataFim;
 
     private BigDecimal valorTotal;
+
+    public Aluguel(AluguelRequestDTO aluguelDTO, BigDecimal valorTotal) {
+        this.pessoaId = aluguelDTO.pessoaId();
+        this.veiculoId = aluguelDTO.veiculoId();
+        this.dataInicio = aluguelDTO.dataInicio();
+        this.dataFim = aluguelDTO.dataFim();
+        this.valorTotal = valorTotal;
+    }
 }

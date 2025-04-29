@@ -23,8 +23,8 @@ public class AluguelRepositoryImp implements AluguelRepository {
                         "p.nome AS pessoa_nome, p.cpf AS pessoa_cpf, " +
                         "v.modelo AS veiculo_modelo, v.placa AS veiculo_placa " +
                         "FROM alugueis a " +
-                        "INNER JOIN pessoas p ON a.pessoas_id = p.id " +
-                        "INNER JOIN veiculos v ON a.veiculos_id = v.id " +
+                        "INNER JOIN pessoas p ON a.pessoa_id = p.id " +
+                        "INNER JOIN veiculos v ON a.veiculo_id = v.id " +
                         "WHERE a.id = :id ")
                 .param("id", id).query(Aluguel.class)
                 .optional();
@@ -37,8 +37,8 @@ public class AluguelRepositoryImp implements AluguelRepository {
                         "p.nome AS pessoa_nome, p.cpf AS pessoa_cpf, " +
                         "v.modelo AS veiculo_modelo, v.placa AS veiculo_placa " +
                         "FROM alugueis a " +
-                        "INNER JOIN pessoas p ON a.pessoas_id = p.id " +
-                        "INNER JOIN veiculos v ON a.veiculos_id = v.id " +
+                        "INNER JOIN pessoas p ON a.pessoa_id = p.id " +
+                        "INNER JOIN veiculos v ON a.veiculo_id = v.id " +
                         "LIMIT :limit OFFSET :offset")
                 .param("limit", size)
                 .param("offset", offset)
@@ -69,6 +69,7 @@ public class AluguelRepositoryImp implements AluguelRepository {
                 .param("data_inicio", aluguel.getDataInicio())
                 .param("data_fim", aluguel.getDataFim())
                 .param("valor_total", aluguel.getValorTotal())
+                .param("id", id)
                 .update();
     }
 
