@@ -20,6 +20,8 @@ import com.locatech.locatech.dtos.AluguelRequestDTO;
 import com.locatech.locatech.entities.Aluguel;
 import com.locatech.locatech.services.AluguelService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/alugueis")
 public class AluguelController {
@@ -55,7 +57,7 @@ public class AluguelController {
 
     @PostMapping()
     public ResponseEntity<Void> saveAluguel(
-            @RequestBody AluguelRequestDTO Aluguel
+            @Valid @RequestBody AluguelRequestDTO Aluguel
         ) {
         logger.info("POST -> /Aluguel");
         this.aluguelService.saveAluguel(Aluguel);
