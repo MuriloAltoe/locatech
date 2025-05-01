@@ -18,10 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.locatech.locatech.entities.Veiculo;
 import com.locatech.locatech.services.VeiculoService;
+import com.locatech.locatech.swagger.VeiculoSwaggerOperation;
 
 @RestController
 @RequestMapping("/veiculos")
-public class VeiculoController {
+public class VeiculoController implements VeiculoSwaggerOperation {
 
     private static final Logger logger = LoggerFactory.getLogger(VeiculoController.class);
 

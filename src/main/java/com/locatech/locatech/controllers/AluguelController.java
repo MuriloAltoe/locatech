@@ -20,11 +20,13 @@ import com.locatech.locatech.dtos.AluguelRequestDTO;
 import com.locatech.locatech.entities.Aluguel;
 import com.locatech.locatech.services.AluguelService;
 
+import com.locatech.locatech.swagger.AluguelSwaggerOperation;
+
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/alugueis")
-public class AluguelController {
+public class AluguelController implements AluguelSwaggerOperation {
     
     private static final Logger logger = LoggerFactory.getLogger(AluguelController.class);
 
@@ -85,4 +87,5 @@ public class AluguelController {
 
         return ResponseEntity.ok().build();
     }
+
 }

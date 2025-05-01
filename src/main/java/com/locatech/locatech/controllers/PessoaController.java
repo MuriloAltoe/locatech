@@ -18,10 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.locatech.locatech.entities.Pessoa;
 import com.locatech.locatech.services.PessoaService;
+import com.locatech.locatech.swagger.PessoaSwaggerOperation;
 
 @RestController
 @RequestMapping("/pessoas")
-public class PessoaController {
+public class PessoaController implements PessoaSwaggerOperation {
 
     private static final Logger logger = LoggerFactory.getLogger(PessoaController.class);
 
